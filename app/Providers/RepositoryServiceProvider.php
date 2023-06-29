@@ -2,18 +2,18 @@
 
 namespace App\Providers;
 
+use App\Modules\User\Repositories\UserRepository;
+use App\Modules\User\Repositories\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
-use App\Providers\RepositoryServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
      */
     public function register(): void
     {
-        $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
-        $this->app->register(RepositoryServiceProvider::class);
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
     }
 
     /**

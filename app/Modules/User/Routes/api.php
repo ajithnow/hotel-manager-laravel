@@ -1,6 +1,7 @@
 <?php
+namespace App\Modules\User\Routes;
 
-use Illuminate\Http\Request;
+use App\Modules\User\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Import the module routes
-Route::prefix('user')->group(function () {
-    require_once __DIR__.'/../app/Modules/User/Routes/api.php';
-});
+Route::post('/create', [UserController::class, 'store']);
 
-Route::get('/', function () {
-    return 'hi';
-});
 
