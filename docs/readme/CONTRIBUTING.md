@@ -21,9 +21,9 @@ Please review and abide by our [Code of Conduct](CODE_OF_CONDUCT.md) during your
 
 There are several ways you can contribute to the Hotelier App:
 
-- **Reporting Issues**: If you encounter any bugs or issues, please report them on the [issue tracker](https://github.com/your-username/hotelier-app/issues).
+- **Reporting Issues**: If you encounter any bugs or issues, please report them on the [issue tracker](https://github.com/ajithnow/hotel-manager-laravel/issues).
 
-- **Feature Requests**: If you have ideas for new features or enhancements, you can submit them as [feature requests](https://github.com/your-username/hotelier-app/issues).
+- **Feature Requests**: If you have ideas for new features or enhancements, you can submit them as [feature requests](https://github.com/ajithnow/hotel-manager-laravel/issues).
 
 - **Bug Fixes and Improvements**: You can contribute to the project by fixing bugs, improving existing features, or optimizing performance. Please follow the guidelines mentioned below.
 
