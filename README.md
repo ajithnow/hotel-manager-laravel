@@ -34,35 +34,51 @@ To build and run the Docker containers for the Hotel Manager App, follow the ste
 
 1. Clone the repository:
 
-`git clone https://github.com/your-username/hotel-manager-app.git`
-`cd hotel-manager-app`
+`git clone https://github.com/ajithnow/hotel-manager-laravel.git`
+`cd hotel-manager-laravel`
 
 
-2. Build the Docker images:
+2. Build the Docker images with sail:
 
-`docker-compose build`
+`docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php82-composer:latest \
+    composer install --ignore-platform-reqs`
 
-This command will build the Docker images for the backend and frontend services based on the configuration specified in the `docker-compose.yml` file.
+This command will build the Docker images for [Laravel Sail](https://laravel.com/docs/10.x/sail) based on the configuration specified in the `docker-compose.yml` file.
 
-3. Run the Docker containers:
+3. Configuring A Shell Alias
 
-`docker-compose up`
+`alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`
 
-This command will start the Docker containers for the backend and frontend services. You should see the logs from each container displayed in the terminal.
+4. Run the Docker containers:
 
-4. Access the Hotel Manager App:
+`sail up`
+
+This command will start the Docker containers for Laravel Sail. You should see the logs from each container displayed in the terminal.
+
+5. Running Migrations
+
+`sail artisan migrate`
+
+6. Generating API Documentation
+
+`sail artisan l5-swagger:generate`
+
+5. Access the Hotel Manager App [DEV]:
 
 Once the containers are up and running, you can access the Hotel Manager App in your web browser at [http://localhost](http://localhost).
+
+6. Acess the API Documentation
+
+Once the containers are up and running, you can access the Hotel Manager App APIs in your web browser at [http://localhost/api/documentation](http://localhost/api/documentation).
 
 5. Stop the running containers:
 
 To stop the Docker containers, press `Ctrl + C` in the terminal where the containers are running.
 
-6. Restart the containers:
-
-If you need to restart the containers at a later time, you can run the following command:
-
-`docker-compose up`
 
 ## Contributing
 
