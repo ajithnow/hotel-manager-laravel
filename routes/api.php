@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Import the module routes
-Route::prefix('user')->group(function () {
-    require_once __DIR__.'/../app/Modules/User/Routes/api.php';
-});
-
-Route::get('/', function () {
-    return 'hi';
-});
-
+if (File::isDirectory(MODULE_PATH)) {
+    $moduleDirectories = File::directories(MODULE_PATH);
+    foreach ($moduleDirectories as $directory){
+        $module = basename($directory);
+        Route::prefix(lcfirst($module))->group(function () use ($module) {
+            require_once app_path("Modules/{$module}/Routes/api.php");
+        });
+    }
+}

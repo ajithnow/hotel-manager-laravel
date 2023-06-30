@@ -27,6 +27,18 @@
                 "summary": "Create a new user",
                 "description": "Endpoint to create a new user",
                 "operationId": "8c2c8cabb5876407d3e183306db583eb",
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Accepted content type",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {

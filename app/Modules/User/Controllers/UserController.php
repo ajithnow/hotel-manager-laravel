@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Modules\User\Repositories\UserRepositoryInterface as UserRepo;
 use App\Modules\User\Requests\CreateUserRequest;
 use App\Modules\User\Resources\UserCreatedResource;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -46,7 +47,7 @@ class UserController extends Controller
      * )
      */
     public function store(CreateUserRequest $request, UserRepo $userRepo)
-    {
+    {   
         $user = $userRepo->create(user: $request->validated());
         return new UserCreatedResource($user);
     }

@@ -2,7 +2,11 @@
 
 namespace App\Modules\User\Requests;
 
+use Illuminate\Contracts\Validation\Validator as ValidationValidator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Validator;
+use Symfony\Component\Mailer\Exception\HttpTransportException;
 
 class CreateUserRequest extends FormRequest
 {
@@ -19,7 +23,7 @@ class CreateUserRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
             'name' => 'required|max:255',
@@ -41,4 +45,15 @@ class CreateUserRequest extends FormRequest
         $validatedData['password'] = bcrypt($this->input('password'));
         return $validatedData;
     }
+
+    protected function failedValidation(ValidationValidator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'message' => 'Validation error',
+            'errors' => $validator->errors(),
+        ], 403));
+    }
+
+
+    
 }
