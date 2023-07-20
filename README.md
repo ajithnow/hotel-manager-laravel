@@ -47,7 +47,7 @@ To build and run the Docker containers for the Hotel Manager App, follow the ste
     -v "$(pwd):/var/www/html" \  
     -w /var/www/html \  
     laravelsail/php82-composer:latest \  
-    composer install --ignore-platform-reqs`
+    composer install --ignore-platform-reqs```
 
 This command will build the Docker images for [Laravel Sail](https://laravel.com/docs/10.x/sail) based on the configuration specified in the `docker-compose.yml` file.
 
