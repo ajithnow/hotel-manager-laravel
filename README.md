@@ -35,6 +35,7 @@ To build and run the Docker containers for the Hotel Manager App, follow the ste
 1. Clone the repository:
 
 `git clone https://github.com/ajithnow/hotel-manager-laravel.git`
+
 `cd hotel-manager-laravel`
 
 
