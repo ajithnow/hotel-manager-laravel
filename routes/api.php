@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\File;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +13,4 @@ use Illuminate\Support\Facades\File;
 |
 */
 
-if (File::isDirectory(MODULE_PATH)) {
-    $moduleDirectories = File::directories(MODULE_PATH);
-    foreach ($moduleDirectories as $directory){
-        $module = basename($directory);
-        Route::prefix(lcfirst($module))->group(function () use ($module) {
-            require_once app_path("Modules/{$module}/Routes/api.php");
-        });
-    }
-}
+// All Modules Routes are defined through dynamic routing in the route service provider
