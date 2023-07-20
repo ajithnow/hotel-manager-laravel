@@ -49,6 +49,7 @@ docker run --rm \
     -w /var/www/html \
     laravelsail/php82-composer:latest \
     composer install --ignore-platform-reqs
+
 ```
 
 This command will build the Docker images for [Laravel Sail](https://laravel.com/docs/10.x/sail) based on the configuration specified in the `docker-compose.yml` file.
@@ -111,3 +112,4 @@ Thank you for contributing to the Hotelier App!
 The Hotelier App is open-source and released under the [MIT License](LICENSE). Feel free to use, modify, and distribute the codebase as per the terms of the license.
 
 Feel free to modify and customize this README file according to your specific project requirements.
+....
