@@ -36,10 +36,11 @@ To build and run the Docker containers for the Hotel Manager App, follow the ste
 
 `git clone https://github.com/ajithnow/hotel-manager-laravel.git`
 
+2. Go to directory
+
 `cd hotel-manager-laravel`
 
-
-2. Build the Docker images with sail:
+3. Build the Docker images with sail:
 
 `docker run --rm \
     -u "$(id -u):$(id -g)" \
@@ -50,33 +51,33 @@ To build and run the Docker containers for the Hotel Manager App, follow the ste
 
 This command will build the Docker images for [Laravel Sail](https://laravel.com/docs/10.x/sail) based on the configuration specified in the `docker-compose.yml` file.
 
-3. Configuring A Shell Alias
+4. Configuring A Shell Alias
 
 `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`
 
-4. Run the Docker containers:
+5. Run the Docker containers:
 
 `sail up`
 
 This command will start the Docker containers for Laravel Sail. You should see the logs from each container displayed in the terminal.
 
-5. Running Migrations
+6. Running Migrations
 
 `sail artisan migrate`
 
-6. Generating API Documentation
+7. Generating API Documentation
 
 `sail artisan l5-swagger:generate`
 
-5. Access the Hotel Manager App [DEV]:
+8. Access the Hotel Manager App [DEV]:
 
 Once the containers are up and running, you can access the Hotel Manager App in your web browser at [http://localhost](http://localhost).
 
-6. Acess the API Documentation
+9. Acess the API Documentation
 
 Once the containers are up and running, you can access the Hotel Manager App APIs in your web browser at [http://localhost/api/documentation](http://localhost/api/documentation).
 
-5. Stop the running containers:
+10. Stop the running containers:
 
 To stop the Docker containers, press `Ctrl + C` in the terminal where the containers are running.
 
