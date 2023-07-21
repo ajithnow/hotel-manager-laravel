@@ -1,5 +1,6 @@
 <?php
 
+use App\Modules\User\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// All Modules Routes are defined through dynamic routing in the route service provider
+//User Module Routes
+Route::name('user.')->prefix('user')->group(base_path('app/Modules/User/Routes/api.php'));

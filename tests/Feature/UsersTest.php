@@ -47,5 +47,5 @@ it('cannot create a user with a password less than 8 characters', function () {
 
 function postUser(array $data)
 {
-    return post('/api/user/create', $data);
+    return post(route('user.create'), $data);
 }
