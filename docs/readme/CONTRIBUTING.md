@@ -39,6 +39,10 @@ Please adhere to the following coding guidelines when contributing to the projec
 -   Write clear, concise, and well-documented code.
 -   Ensure your code is properly formatted and free of linting errors.
 
+## Test before commmit
+Please test before commits using unit tests. Make sure that you have proper `env.testing` file.
+run the tests using
+    `sail artisan test --env=testing`
 ## Commit Message Guidelines
 
 When writing commit messages, please follow these guidelines:
