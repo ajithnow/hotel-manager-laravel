@@ -172,6 +172,7 @@ return [
 
         //custom app providers
         App\Providers\RepositoryServiceProvider::class,
+        App\Providers\MigrationServiceProvider::class
     ])->toArray(),
 
     /*
