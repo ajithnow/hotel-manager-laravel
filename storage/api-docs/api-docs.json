@@ -27,18 +27,6 @@
                 "summary": "Create a new user",
                 "description": "Endpoint to create a new user",
                 "operationId": "8c2c8cabb5876407d3e183306db583eb",
-                "parameters": [
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "description": "Accepted content type",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "default": "application/json"
-                        }
-                    }
-                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -66,6 +54,41 @@
                     },
                     "422": {
                         "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/user/show": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get User by UUID",
+                "description": "Get a user by UUID.",
+                "operationId": "getUserByUUID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The UUID of the user to retrieve.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
                     }
                 }
             }
