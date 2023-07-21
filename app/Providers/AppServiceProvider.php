@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
-    {
-        $this->loadMigrationsFrom(base_path('app/modules/user/migrations'));
+    {   
+        $this->loadMigrationsFrom(base_path('app/Modules/User/Migrations'));
     }
 }
