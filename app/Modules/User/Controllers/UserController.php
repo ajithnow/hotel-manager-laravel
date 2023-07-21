@@ -3,9 +3,12 @@
 namespace App\Modules\User\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\User\Models\User;
 use App\Modules\User\Repositories\UserRepositoryInterface as UserRepo;
 use App\Modules\User\Requests\CreateUserRequest;
+use App\Modules\User\Requests\ShowUserRequest;
 use App\Modules\User\Resources\UserCreatedResource;
+use App\Modules\User\Resources\UserResource;
 use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
@@ -46,9 +49,45 @@ class UserController extends Controller
      *     )
      * )
      */
-    public function store(CreateUserRequest $request, UserRepo $userRepo)
-    {   
-        $user = $userRepo->create(user: $request->validated());
+    public function store(CreateUserRequest $request, UserRepo $repo)
+    {
+        $user = $repo->create(user: $request->validated());
         return new UserCreatedResource($user);
+    }
+
+    /**
+     * @OA\Get(
+     *     path="/user/show",
+     *     tags={"Users"},
+     *     summary="Get User by UUID",
+     *     description="Get a user by UUID.",
+     *     operationId="getUserByUUID",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="query",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string",
+     *             format="uuid"
+     *         ),
+     *         description="The UUID of the user to retrieve."
+     *     ),
+     *     @OA\Response(
+     *         response="200",
+     *         description="OK",
+     *         @OA\JsonContent(
+     *             @OA\Schema(ref="#/components/schemas/UserResource")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response="404",
+     *         description="Not Found"
+     *     )
+     * )
+     */
+    public function show(ShowUserRequest $request, UserRepo $repo)
+    {
+        $user = $repo->findByUUID(uuid: $request->id);
+        return new UserResource($user);
     }
 }
