@@ -17,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('create', [UserController::class, 'store'])->name('create');
 Route::get('show', [UserController::class, 'show'])->name('show');
+Route::delete('delete', [UserController::class, 'destroy'])->name('destroy');
+Route::patch('update', [UserController::class, 'update'])->name('update');
+
 
 

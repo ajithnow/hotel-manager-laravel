@@ -24,7 +24,6 @@ class MigrationServiceProvider extends ServiceProvider
         $moduleFolders = File::directories($modulesPath);
         foreach ($moduleFolders as $moduleFolder) {
             $migrationsPath = $moduleFolder . DIRECTORY_SEPARATOR . 'Migrations';
-    
             if (File::exists($migrationsPath)) {
                 $this->loadMigrationsFrom($migrationsPath);
             }
