@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Modules\User\Repositories;
 
 use App\Modules\User\Models\User;
@@ -34,9 +35,14 @@ class UserRepository implements UserRepositoryInterface
      * @param User $user The User instance to delete.
      * @return bool True if the user is successfully deleted, false otherwise.
      */
-    public function delete(User $user): bool
+    public function delete(string $id): bool
     {
-        return User::destroy($user->id);
+        return User::destroy($id);
+    }
+
+    public function get(string $id): User
+    {
+        return User::find($id);
     }
 
     /**

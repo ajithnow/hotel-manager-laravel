@@ -58,7 +58,7 @@
                 }
             }
         },
-        "/user/show": {
+        "/user/{id}": {
             "get": {
                 "tags": [
                     "Users"
@@ -69,7 +69,7 @@
                 "parameters": [
                     {
                         "name": "id",
-                        "in": "query",
+                        "in": "path",
                         "description": "The UUID of the user to retrieve.",
                         "required": true,
                         "schema": {
@@ -89,6 +89,34 @@
                     },
                     "404": {
                         "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete User by UUID",
+                "description": "Delete a user by UUID.",
+                "operationId": "deleteUserByUUID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The UUID of the user to delete.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User deleted successfully"
+                    },
+                    "404": {
+                        "description": "User not found"
                     }
                 }
             }

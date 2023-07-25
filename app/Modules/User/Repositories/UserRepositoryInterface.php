@@ -27,7 +27,9 @@ interface UserRepositoryInterface
      * @param User $user The User instance to delete.
      * @return bool True if the user is successfully deleted, false otherwise.
      */
-    public function delete(User $user): bool;
+    public function delete(string $id): bool;
+
+    public function get(string $id): User;
 
     /**
      * Find a user by ID.
