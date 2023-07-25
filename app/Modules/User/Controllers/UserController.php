@@ -7,11 +7,12 @@ use App\Modules\User\Repositories\UserProfileRepositoryInterface as UserProfileR
 use App\Modules\User\Repositories\UserRepositoryInterface as UserRepo;
 use App\Modules\User\Requests\CreateUserProfileRequest as CreateUserProfileRequest;
 use App\Modules\User\Requests\CreateUserRequest;
+use App\Modules\User\Requests\DeleteUserRequest;
 use App\Modules\User\Requests\ShowUserRequest;
 use App\Modules\User\Resources\UserCreatedResource;
+use App\Modules\User\Resources\UserDeletedResource;
 use App\Modules\User\Resources\UserProfileResource as UserProfileResource;
 use App\Modules\User\Resources\UserResource;
-use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -59,14 +60,14 @@ class UserController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/user/show",
+     *     path="/user/{id}",
      *     tags={"Users"},
      *     summary="Get User by UUID",
      *     description="Get a user by UUID.",
      *     operationId="getUserByUUID",
      *     @OA\Parameter(
      *         name="id",
-     *         in="query",
+     *         in="path",
      *         required=true,
      *         @OA\Schema(
      *             type="string",
@@ -89,8 +90,41 @@ class UserController extends Controller
      */
     public function show(ShowUserRequest $request, UserRepo $repo)
     {
-        $user = $repo->findByUUID(uuid: $request->id);
-        return new UserResource($user);
+        $user = $repo->get(id: $request->id);
+        return (new UserResource($user))->response()->setStatusCode(200);
+    }
+
+    /**
+     * @OA\Delete(
+     *     path="/user/{id}",
+     *     operationId="deleteUserByUUID",
+     *     summary="Delete User by UUID",
+     *     description="Delete a user by UUID.",
+     *     tags={"Users"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="The UUID of the user to delete.",
+     *         @OA\Schema(
+     *             type="string",
+     *             format="uuid"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response="200",
+     *         description="User deleted successfully"
+     *     ),
+     *     @OA\Response(
+     *         response="404",
+     *         description="User not found"
+     *     )
+     * )
+     */
+    public function destroy(DeleteUserRequest $request, UserRepo $repo)
+    {   
+        $user = $repo->delete(id :$request->id);
+        return (new UserDeletedResource($user))->response()->setStatusCode(200);
     }
 
     /**
@@ -152,7 +186,7 @@ class UserController extends Controller
      * )
      */
     public function createProfile(CreateUserProfileRequest $request, UserProfileRepo $repo)
-    {   
+    {
         return (new UserProfileResource($repo->create($request->validated())))
             ->response()
             ->setStatusCode(201);

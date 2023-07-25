@@ -5,9 +5,8 @@ namespace App\Modules\User\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator as ValidationValidator;
-use Illuminate\Support\Facades\Log;
 
-class ShowUserRequest extends FormRequest
+class DeleteUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -18,7 +17,7 @@ class ShowUserRequest extends FormRequest
     }
 
     public function all($keys = null)
-    {   
+    {
         $request = parent::all($keys);
         $request['id'] = $this->route('id');
         return $request;
