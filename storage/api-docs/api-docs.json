@@ -92,6 +92,62 @@
                     }
                 }
             }
+        },
+        "/user/profile": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create or update user profile",
+                "description": "Endpoint to create or update user profile details",
+                "operationId": "0f9f384be8d276182ff4b3c1ff756e53",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string",
+                                        "example": "uuid"
+                                    },
+                                    "address_line_1": {
+                                        "type": "string"
+                                    },
+                                    "address_line_2": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "is_verified": {
+                                        "type": "boolean",
+                                        "example": false
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User profile created/updated successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
         }
     }
 }
