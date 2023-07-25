@@ -20,5 +20,7 @@ Route::get('show', [UserController::class, 'show'])->name('show');
 Route::delete('delete', [UserController::class, 'destroy'])->name('destroy');
 Route::patch('update', [UserController::class, 'update'])->name('update');
 
+Route::post('profile', [UserController::class, 'createProfile'])->name('create-profile');
+
 
 

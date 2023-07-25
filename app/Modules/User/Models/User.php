@@ -62,4 +62,9 @@ class User extends Authenticatable
             $model->{$model->getKeyName()} = (string) Str::uuid();
         });
     }
+
+
+    public function profile(){
+        return $this->hasOne(UserProfile::class);
+    }
 }
