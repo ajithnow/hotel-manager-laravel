@@ -1,4 +1,4 @@
-# LaraEasy Hotel Managemen
+# LaraEasy Hotel Management App
 
 The LaraEasy Hotel Management App is an open-source web application designed to assist hoteliers in their day-to-day tasks. It provides a comprehensive solution for managing reservations, guest information, room allocation, billing, and more.
 
