@@ -18,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::name('user.')->prefix('user')->group(base_path('app/Modules/User/Routes/api.php'));
 
 //Auth Module Routes
-Route::name('auth')->prefix('auth')->group(base_path('app/Modules/Auth/Routes/api.php'));
+Route::name('auth.')->prefix('auth')->group(base_path('app/Modules/Auth/Routes/api.php'));
+
+//Room Module Routes
+Route::name('room.')->prefix('room')->group(base_path('app/Modules/Room/Routes/api.php'));
