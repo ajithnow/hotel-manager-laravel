@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Modules\Room\Repositories\RoomRepository;
+use App\Modules\Room\Repositories\RoomRepositoryInterface;
+use App\Modules\Room\Repositories\RoomTypeRepository;
+use App\Modules\Room\Repositories\RoomTypeRepositoryInterface;
 use App\Modules\User\Repositories\UserProfileRepository;
 use App\Modules\User\Repositories\UserProfileRepositoryInterface;
 use App\Modules\User\Repositories\UserRepository;
@@ -17,6 +21,8 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(UserProfileRepositoryInterface::class, UserProfileRepository::class);
+        $this->app->bind(RoomRepositoryInterface::class, RoomRepository::class);
+        $this->app->bind(RoomTypeRepositoryInterface::class, RoomTypeRepository::class);
     }
 
     /**

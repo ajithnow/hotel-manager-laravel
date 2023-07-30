@@ -70,6 +70,66 @@
                 }
             }
         },
+        "/room/type/create": {
+            "post": {
+                "tags": [
+                    "Room Types"
+                ],
+                "summary": "Create a new room type",
+                "description": "Creates a new room type and stores it in the database.",
+                "operationId": "d30adad34fde5cdacbe0c7f435841d14",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "The name of the room type.",
+                                        "type": "string",
+                                        "maxLength": 255,
+                                        "example": "Standard"
+                                    },
+                                    "description": {
+                                        "description": "The description of the room type.",
+                                        "type": "string"
+                                    },
+                                    "meta": {
+                                        "description": "Additional metadata related to the room type.",
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Room type created successfully"
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/user/create": {
             "post": {
                 "tags": [
