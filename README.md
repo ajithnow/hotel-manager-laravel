@@ -1,6 +1,7 @@
-# Hotel Manager App
+# LaraEasy Hotel Management App
+![Alt text](./docs/readme/Logo.png "a title")
 
-The Hotel Manager App is an open-source web application designed to assist hoteliers in their day-to-day tasks. It provides a comprehensive solution for managing reservations, guest information, room allocation, billing, and more.
+The LaraEasy Hotel Management App is an open-source web application designed to assist hoteliers in their day-to-day tasks. It provides a comprehensive solution for managing reservations, guest information, room allocation, billing, and more.
 
 ## Features
 
@@ -109,7 +110,7 @@ Thank you for contributing to the Hotelier App!
 
 ## License
 
-The Hotelier App is open-source and released under the [MIT License](LICENSE). Feel free to use, modify, and distribute the codebase as per the terms of the license.
+The LaraEasy Hotel Management App is open-source and released under the [MIT License](LICENSE). Feel free to use, modify, and distribute the codebase as per the terms of the license.
 
 Feel free to modify and customize this README file according to your specific project requirements.
 ....
