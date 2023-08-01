@@ -104,7 +104,7 @@ Contributions to the Hotelier App are welcome! If you'd like to contribute, plea
 
 4. Open a pull request in the main repository, describing your changes and the rationale behind them.
 
-Please ensure that your contributions adhere to our [Code of Conduct](docs/readme/CODE_OF_CONDUCT.md) and [Contributing Guidelines](docs/readme/CONTRIBUTING.md). By participating in this project, you agree to abide by these terms.
+Please ensure that your contributions adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) and [Contributing Guidelines](./CONTRIBUTING.md). By participating in this project, you agree to abide by these terms.
 
 Thank you for contributing to the Hotelier App!
 
