@@ -19,7 +19,7 @@ class UserCreatedResource extends JsonResource
         return [
             'message' => 'User created successfully.',
             'data' => [
-                'user_id' => $this->id,
+                'user_uuid' => $this->uuid,
                 'user_name' => $this->name,
                 'created_at' => $this->created_at
             ],

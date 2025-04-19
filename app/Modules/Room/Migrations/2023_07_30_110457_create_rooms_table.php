@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rooms', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('uuid')->primary();
             $table->timestamps();
             $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('room_type_id');
-            $table->foreign('room_type_id')->references('id')->on('room_types');
+            $table->uuid('room_type_id');
+            $table->foreign('room_type_id')->references('uuid')->on('room_types');
             $table->decimal('price')->default(0.0);
             $table->integer('max_pax')->default(2);
-            $table->unsignedBigInteger('floor_id');
-            $table->foreign('floor_id')->references('id')->on('floors');
+            $table->uuid('floor_id');
+            $table->foreign('floor_id')->references('uuid')->on('floors');
             $table->json('meta')->nullable();
         });
     }
