@@ -28,13 +28,13 @@ class DeleteUserRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
-    public function rules(): array
+    public function rules(): array  
     {
         return [
-            'id' => 'required|uuid|exists:users,id'
+            'uuid' => 'required|uuid|exists:users,uuid'
         ];
     }
-
+  
     protected function failedValidation(ValidationValidator $validator)
     {
         throw new HttpResponseException(response()->json([

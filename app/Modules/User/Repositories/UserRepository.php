@@ -35,25 +35,25 @@ class UserRepository implements UserRepositoryInterface
      * @param User $user The User instance to delete.
      * @return bool True if the user is successfully deleted, false otherwise.
      */
-    public function delete(string $id): bool
+    public function delete(string $uuid): bool
     {
-        return User::destroy($id);
+        return User::destroy($uuid);
     }
 
-    public function get(string $id): User
+    public function get(string $uuid): User
     {
-        return User::find($id);
+        return User::find($uuid);
     }
 
     /**
      * Find a user by ID.
      *
-     * @param int $id The ID of the user to find.
+     * @param string $uuid The uuid of the user to find.
      * @return User|null The found User instance, or null if not found.
      */
-    public function findById(int $id): User
+    public function findById(string $uuid): User
     {
-        return User::find($id);
+        return User::find($uuid);
     }
 
     /**

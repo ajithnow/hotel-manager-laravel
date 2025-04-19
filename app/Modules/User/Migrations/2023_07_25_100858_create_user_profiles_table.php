@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_profiles', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->uuid('uuid')->primary();
+            $table->uuid('user_uuid');
+            $table->foreign('user_uuid')->references('uuid')->on('users')->cascadeOnDelete();
             $table->string('address_line_1')->nullable();
             $table->string('address_line_2')->nullable();
             $table->string('city')->nullable();
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->boolean('is_verified')->default(false);
             $table->timestamps();
 
-            $table->index('user_id');
+            $table->index('user_uuid');
         });
     }
 

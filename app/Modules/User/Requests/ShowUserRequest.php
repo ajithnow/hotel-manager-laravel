@@ -20,7 +20,7 @@ class ShowUserRequest extends FormRequest
     public function all($keys = null)
     {   
         $request = parent::all($keys);
-        $request['id'] = $this->route('id');
+        $request['uuid'] = $this->route('uuid');
         return $request;
     }
 
@@ -32,7 +32,7 @@ class ShowUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|uuid|exists:users,id'
+            'uuid' => 'required|uuid|exists:users,uuid'
         ];
     }
 
