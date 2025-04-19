@@ -24,7 +24,7 @@ class CreateUserProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'unique:user_profiles,user_id|required|exists:users,id',
+            'user_id' => 'unique:user_profiles,user_id|required|exists:users,uuid',
             'address_line_1' => 'nullable|string|max:255',
             'address_line_2' => 'nullable|string|max:255',
             'city' => 'nullable|string|max:100',
