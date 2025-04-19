@@ -26,13 +26,13 @@ class UserRepository implements UserRepositoryInterface
      */
     public function update(User $user): User
     {
-        return User::where('id', $user->id)->update($user);
+        return User::where('uuid', $user->uuid)->update($user->toArray());
     }
 
     /**
      * Delete a User.
      *
-     * @param User $user The User instance to delete.
+     * @param string $uuid The uuid of the user to delete.
      * @return bool True if the user is successfully deleted, false otherwise.
      */
     public function delete(string $uuid): bool
@@ -48,7 +48,7 @@ class UserRepository implements UserRepositoryInterface
     /**
      * Find a user by ID.
      *
-     * @param string $uuid The uuid of the user to find.
+     * @param string $uuid The UUID of the user to find.
      * @return User|null The found User instance, or null if not found.
      */
     public function findById(string $uuid): User

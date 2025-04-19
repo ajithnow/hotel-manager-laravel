@@ -32,14 +32,6 @@ interface UserRepositoryInterface
     public function get(string $id): User;
 
     /**
-     * Find a user by ID.
-     *
-     * @param int $id The ID of the user to find.
-     * @return User|null The found User instance, or null if not found.
-     */
-    public function findById(int $id): User;
-
-    /**
      * Find a user by UUID.
      *
      * @param int $id The ID of the user to find.
