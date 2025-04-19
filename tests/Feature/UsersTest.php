@@ -53,16 +53,17 @@ it('can create a user profile with valid data', function (){
         'email' => 'test@test2.com',
         'password' => 'test@yyyyei',
     ])->assertStatus(201);
+    $user = User::first();
+    $uuid = $user->uuid;
     $data = [
-        'user_id' => User::first()->id,
+        'user_id' => $uuid,
         'address_line_1' => 'ad1',
         'address_line_2' => 'ad2',
         'city' => 'city',
         'state' => 'state',
         'country'=> 'country',
         'is_verified' => false
-    ];
-    postUserProfile($data)->assertStatus(201);
+    ];    postUserProfile($data)->assertStatus(201);
 })->group('users');
 
 it('it cannot create a user profile with invalid id', function (){
@@ -84,16 +85,17 @@ it('it cannot create a duplicate user profile', function (){
         'email' => 'test@test2.com',
         'password' => 'test@yuiyujjhj',
     ])->assertStatus(201);
+    $user = User::first();
+    $uuid = $user->uuid;
     $data = [
-        'user_id' => User::first()->id,
+        'user_id' => $uuid,
         'address_line_1' => 'ad1',
         'address_line_2' => 'ad2',
         'city' => 'city',
         'state' => 'state',
         'country'=> 'country',
         'is_verified' => false
-    ];
-    postUserProfile($data)->assertStatus(201);
+    ];    postUserProfile($data)->assertStatus(201);
     postUserProfile($data)->assertStatus(403);
 })->group('users');
 
