@@ -56,7 +56,7 @@ it('can create a user profile with valid data', function (){
     $user = User::first();
     $uuid = $user->uuid;
     $data = [
-        'user_id' => $uuid,
+        'user_uuid' => $uuid,
         'address_line_1' => 'ad1',
         'address_line_2' => 'ad2',
         'city' => 'city',
@@ -68,7 +68,7 @@ it('can create a user profile with valid data', function (){
 
 it('it cannot create a user profile with invalid id', function (){
     $data = [
-        'user_id' => '01c14b35-4411-4a75-9b47-c867f1f2e720',
+        'user_uuid' => '01c14b35-4411-4a75-9b47-c867f1f2e720',
         'address_line_1' => 'ad1',
         'address_line_2' => 'ad2',
         'city' => 'city',
