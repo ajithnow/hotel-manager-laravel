@@ -88,7 +88,7 @@ it('it cannot create a duplicate user profile', function (){
     $user = User::first();
     $uuid = $user->uuid;
     $data = [
-        'user_id' => $uuid,
+        'user_uuid' => $uuid,
         'address_line_1' => 'ad1',
         'address_line_2' => 'ad2',
         'city' => 'city',
